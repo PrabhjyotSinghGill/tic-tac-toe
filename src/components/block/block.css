@@ -1,0 +1,8 @@
+.tic-tac-toe-block{
+    display: inline-flex;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+}
