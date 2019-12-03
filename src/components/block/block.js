@@ -1,28 +1,39 @@
 import React from "react";
 import './block.css';
+import TicTacToe from "../tic-tac-toe/tic-tac-toe";
 
 export default class Block extends React.Component{
-    STATE_BLANK = 'state-blank';
-    STATE_O = 'state-o';
-    STATE_X = 'state-x';
+    VALUE_BLANK = '';
+    VALUE_O = 'O';
+    VALUE_X = 'X';
 
 
     constructor() {
         super();
         this.state = {
-            innerState: this.STATE_BLANK
+            value: this.VALUE_BLANK
         };
     }
 
-    toggle() {
-        if(this.state.innerState === this.STATE_BLANK) {
-            this.setState({innerState: this.STATE_O});
+    handleClick() {
+        if(this.state.value !== this.VALUE_BLANK) {
+            return;
         }
+        if(this.props.whoseTurn === TicTacToe.PLAYER1_TURN) {
+            this.setState({
+                value: this.VALUE_X
+            });
+        } else {
+            this.setState({
+                value: this.VALUE_O
+            })
+        }
+        this.props.toggleTurnFunction();
     }
 
     render(){
-        return<div className='tic-tac-toe-block' onClick={() => this.toggle()}>
-            {this.state.innerState === this.STATE_O ? 'O' : this.state.innerState === this.STATE_X ? 'X' : ''}
+        return<div className='tic-tac-toe-block' onClick={this.handleClick.bind(this)}>
+            {this.state.value}
         </div>
     }
 }
