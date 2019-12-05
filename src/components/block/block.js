@@ -22,11 +22,11 @@ export default class Block extends React.Component{
         if(this.props.whoseTurn === TicTacToe.PLAYER1_TURN) {
             this.setState({
                 value: this.VALUE_X
-            });
+            }, () => this.props.handlePlayerTurnRow(this.props.x,this.props.y))
         } else {
             this.setState({
                 value: this.VALUE_O
-            })
+            }, () => this.props.handlePlayerTurnRow(this.props.x,this.props.y))
         }
         this.props.toggleTurnFunction();
     }

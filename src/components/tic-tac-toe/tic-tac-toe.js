@@ -73,9 +73,21 @@ export default class TicTacToe extends React.Component {
 
     render(){
         return <div className='tic-tac-toe'>
-            <RowTicTacToe whoseTurn={this.state.whoseTurn} toggleTurn={this.toggleTurn.bind(this)}></RowTicTacToe>
-            <RowTicTacToe whoseTurn={this.state.whoseTurn} toggleTurn={this.toggleTurn.bind(this)}></RowTicTacToe>
-            <RowTicTacToe whoseTurn={this.state.whoseTurn} toggleTurn={this.toggleTurn.bind(this)}></RowTicTacToe>
+            <RowTicTacToe whoseTurn={this.state.whoseTurn}
+                          toggleTurn={this.toggleTurn.bind(this)}
+                          handlePlayerTurn={this.handlePlayerTurn.bind(this)}
+                          y={1}>
+            </RowTicTacToe>
+            <RowTicTacToe whoseTurn={this.state.whoseTurn}
+                          toggleTurn={this.toggleTurn.bind(this)}
+                          handlePlayerTurn={this.handlePlayerTurn.bind(this)}
+                          y={2}>
+            </RowTicTacToe>
+            <RowTicTacToe whoseTurn={this.state.whoseTurn}
+                          toggleTurn={this.toggleTurn.bind(this)}
+                          handlePlayerTurn={this.handlePlayerTurn.bind(this)}
+                          y={3}>
+            </RowTicTacToe>
         </div>
     }
 }
